@@ -1,0 +1,61 @@
+[
+  {
+    "description": "Reserved",
+    "lexeme": "const",
+    "token": "<const, >",
+    "pattern": [
+      "c",
+      "o",
+      "n",
+      "s",
+      "t"
+    ],
+    "position": 0,
+    "line": "0",
+    "collumn": "0"
+  },
+  {
+    "description": "Identifier",
+    "lexeme": "b",
+    "token": "<b, >",
+    "pattern": [
+      "b"
+    ],
+    "position": 1,
+    "line": "0",
+    "collumn": "6"
+  },
+  {
+    "description": "Operator",
+    "lexeme": "=",
+    "token": "<=, >",
+    "pattern": [
+      "="
+    ],
+    "position": 2,
+    "line": "0",
+    "collumn": "8"
+  },
+  {
+    "description": "Identifier",
+    "lexeme": "2",
+    "token": "<2, >",
+    "pattern": [
+      "2"
+    ],
+    "position": 3,
+    "line": "0",
+    "collumn": "10"
+  },
+  {
+    "description": "Delimiter",
+    "lexeme": ";",
+    "token": "<;, >",
+    "pattern": [
+      ";"
+    ],
+    "position": 4,
+    "line": "0",
+    "collumn": "11"
+  }
+]

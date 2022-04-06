@@ -1,0 +1,61 @@
+.textAreaContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.textArea {
+  min-height: 412px;
+  width: 400px;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  margin: 0px 10px;
+  font-size: 18px;
+  resize: none;
+  outline: none;
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.textArea::placeholder {
+  color: rgba(255, 255, 255, 0.726);
+}
+
+.label {
+  background-color: white;
+  color: black;
+  font-weight: 700;
+  width: 400px;
+  font-size: 24px;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.caption {
+  background-color: white;
+  color: black;
+  font-weight: 700;
+  width: 100%;
+  font-size: 24px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.textArea::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+.textArea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.textArea::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 5rem;
+}
