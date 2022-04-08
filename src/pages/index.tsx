@@ -8,51 +8,45 @@ import { LexicalData } from "./api/scanner";
 import { GrReactjs } from "react-icons/gr";
 
 interface ApiResponse {
-  data: LexicalData[];
-  error?: string;
+    data: LexicalData[];
+    error?: string;
 }
 
 const Home: NextPage = () => {
-  const [text, setText] = useState<string>("");
-  const [scannedText, setScannedText] = useState<LexicalData[]>([]);
+    const [text, setText] = useState<string>("");
+    const [scannedText, setScannedText] = useState<LexicalData[]>([]);
 
-  useEffect(() => {
-    const FetchScanner = async (text: string) => {
-      const fectchedResponse = await fetch("api/scanner", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(text),
-      });
-      const fetchedText: ApiResponse = await fectchedResponse.json();
-      setScannedText(fetchedText.data);
-      console.log(scannedText);
-    };
-    FetchScanner(text);
-  }, [text]);
+    useEffect(() => {
+        const FetchScanner = async (text: string) => {
+            const fectchedResponse = await fetch("api/scanner", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(text),
+            });
+            const fetchedText: ApiResponse = await fectchedResponse.json();
+            setScannedText(fetchedText.data);
+            console.log(scannedText);
+        };
+        FetchScanner(text);
+    }, [text]);
 
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Next App Lexical Analyzer</title>
-        <meta name="description" content="Application Text Analizer" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    return (
+        <div className={styles.container}>
+            <Head>
+                <title>Next App Lexical Analyzer</title>
+                <meta name="description" content="Application Text Analizer" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
 
-      <main className={styles.main}>
-        {/* <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Lexical Analyzer!</a>
-        </h1> */}
-        <div className={styles.textContainer}>
-          <TextArea text={text} setText={setText} />
-          {<Table data={scannedText} />}
-          {scannedText.length <= 0 && <GrReactjs />}
+            <main className={styles.main}>
+                <div className={styles.textContainer}>
+                    <TextArea text={text} setText={setText} />
+                    {<Table data={scannedText} />}
+                    {scannedText.length <= 0 && <GrReactjs />}
+                </div>
+            </main>
         </div>
-        <div>
-          {/* <button onClick={() => FetchScanner(text)}>Analisar</button> */}
-        </div>
-      </main>
-    </div>
-  );
+    );
 };
 
 export default Home;
