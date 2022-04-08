@@ -16,9 +16,10 @@ export interface LexicalData {
     collumn: string;
 }
 
+const dirRelativeToPublicFolder = "files";
+const filePath = path.resolve("./public", dirRelativeToPublicFolder, "input.txt");
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const dirRelativeToPublicFolder = "files";
-    const filePath = path.resolve("./public", dirRelativeToPublicFolder, "input.txt");
     const tokenDataService = new TokenDataService(reserveds, operators, delimiters);
     const fileManagerHelper = new FileManagerHelper(dirRelativeToPublicFolder, filePath);
     try {
