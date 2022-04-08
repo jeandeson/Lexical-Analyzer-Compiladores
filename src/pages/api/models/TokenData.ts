@@ -1,4 +1,4 @@
-import { LexicalData } from "./scanner";
+import { LexicalData } from "../scanner";
 
 export default class Token implements LexicalData {
     description: string;

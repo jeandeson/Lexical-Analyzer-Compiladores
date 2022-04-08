@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import fs from "fs";
 import path from "path";
-import TextScanner from "./TextScanner";
+import TokenDataService from "./services/TokenDataService";
 import delimiters from "../../language/delimiters";
 import operators from "../../language/operators";
-import reserveds from "../../language/reserved";
+import reserveds from "../../language/reserveds";
+import FileManagerHelper from "./helpers/FileManagerHelper";
 
 export interface LexicalData {
     token: string;
@@ -18,24 +18,16 @@ export interface LexicalData {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const dirRelativeToPublicFolder = "files";
-    const file = path.resolve("./public", dirRelativeToPublicFolder, "input.txt");
-    const textScanner = new TextScanner(reserveds, operators, delimiters);
+    const filePath = path.resolve("./public", dirRelativeToPublicFolder, "input.txt");
+    const tokenDataService = new TokenDataService(reserveds, operators, delimiters);
+    const fileManagerHelper = new FileManagerHelper(dirRelativeToPublicFolder, filePath);
     try {
-        fs.writeFileSync(path.resolve("./public", dirRelativeToPublicFolder, "input.txt"), req.body, {
-            encoding: "utf-8",
-        });
-        const readFile = fs.readFileSync(file, "utf-8");
-
-        const splitedWords = textScanner.handleSplitText(readFile);
-        const definiedTokens = textScanner.handleCompareTokens(splitedWords);
+        fileManagerHelper.writeFile(req.body);
+        const readFile = fileManagerHelper.readFile();
+        const splitedWords = tokenDataService.splitText(readFile);
+        const definiedTokens = tokenDataService.generateTokenData(splitedWords);
         const toWrite = definiedTokens;
-        fs.writeFileSync(
-            path.resolve("./public", dirRelativeToPublicFolder, "output.txt"),
-            JSON.stringify(toWrite, null, 2),
-            {
-                encoding: "utf-8",
-            }
-        );
+        fileManagerHelper.writeFile(JSON.stringify(toWrite, null, 2));
         res.status(200).json({ data: definiedTokens });
     } catch (error) {
         res.status(500).json({ error: error });

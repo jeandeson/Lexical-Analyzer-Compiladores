@@ -1,1 +1,94 @@
-const b = 2;
+[
+  {
+    "description": "Reserved",
+    "lexeme": "const",
+    "token": "<const, >",
+    "pattern": [
+      "c",
+      "o",
+      "n",
+      "s",
+      "t"
+    ],
+    "position": 0,
+    "line": "0",
+    "collumn": "0"
+  },
+  {
+    "description": "Blank",
+    "lexeme": " ",
+    "token": "< , >",
+    "pattern": [
+      " "
+    ],
+    "position": 1,
+    "line": "0",
+    "collumn": "5"
+  },
+  {
+    "description": "Identifier",
+    "lexeme": "a",
+    "token": "<a, >",
+    "pattern": [
+      "a"
+    ],
+    "position": 2,
+    "line": "0",
+    "collumn": "6"
+  },
+  {
+    "description": "Blank",
+    "lexeme": " ",
+    "token": "< , >",
+    "pattern": [
+      " "
+    ],
+    "position": 3,
+    "line": "0",
+    "collumn": "7"
+  },
+  {
+    "description": "Operator",
+    "lexeme": "=",
+    "token": "<=, >",
+    "pattern": [
+      "="
+    ],
+    "position": 4,
+    "line": "0",
+    "collumn": "8"
+  },
+  {
+    "description": "Blank",
+    "lexeme": " ",
+    "token": "< , >",
+    "pattern": [
+      " "
+    ],
+    "position": 5,
+    "line": "0",
+    "collumn": "9"
+  },
+  {
+    "description": "Identifier",
+    "lexeme": "2",
+    "token": "<2, >",
+    "pattern": [
+      "2"
+    ],
+    "position": 6,
+    "line": "0",
+    "collumn": "10"
+  },
+  {
+    "description": "Delimiter",
+    "lexeme": ";",
+    "token": "<;, >",
+    "pattern": [
+      ";"
+    ],
+    "position": 7,
+    "line": "0",
+    "collumn": "11"
+  }
+]
