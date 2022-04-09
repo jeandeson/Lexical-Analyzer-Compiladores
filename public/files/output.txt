@@ -15,15 +15,37 @@
     "collumn": "0"
   },
   {
-    "description": "Identifier",
-    "lexeme": "b",
-    "token": "<b, >",
+    "description": "Blank",
+    "lexeme": " ",
+    "token": "< , >",
     "pattern": [
-      "b"
+      " "
     ],
     "position": 1,
     "line": "0",
+    "collumn": "5"
+  },
+  {
+    "description": "Identifier",
+    "lexeme": "a",
+    "token": "<a, >",
+    "pattern": [
+      "a"
+    ],
+    "position": 2,
+    "line": "0",
     "collumn": "6"
+  },
+  {
+    "description": "Blank",
+    "lexeme": " ",
+    "token": "< , >",
+    "pattern": [
+      " "
+    ],
+    "position": 3,
+    "line": "0",
+    "collumn": "7"
   },
   {
     "description": "Operator",
@@ -32,9 +54,20 @@
     "pattern": [
       "="
     ],
-    "position": 2,
+    "position": 4,
     "line": "0",
     "collumn": "8"
+  },
+  {
+    "description": "Blank",
+    "lexeme": " ",
+    "token": "< , >",
+    "pattern": [
+      " "
+    ],
+    "position": 5,
+    "line": "0",
+    "collumn": "9"
   },
   {
     "description": "Identifier",
@@ -43,7 +76,7 @@
     "pattern": [
       "2"
     ],
-    "position": 3,
+    "position": 6,
     "line": "0",
     "collumn": "10"
   },
@@ -54,7 +87,7 @@
     "pattern": [
       ";"
     ],
-    "position": 4,
+    "position": 7,
     "line": "0",
     "collumn": "11"
   }

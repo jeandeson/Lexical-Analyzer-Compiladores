@@ -16,19 +16,16 @@ export interface LexicalData {
     collumn: string;
 }
 
-const dirRelativeToPublicFolder = "files";
-const filePath = path.resolve("./public", dirRelativeToPublicFolder, "input.txt");
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const tokenDataService = new TokenDataService(reserveds, operators, delimiters);
-    const fileManagerHelper = new FileManagerHelper(dirRelativeToPublicFolder, filePath);
+    const fileManagerHelper = new FileManagerHelper();
     try {
-        fileManagerHelper.writeFile(req.body);
-        const readFile = fileManagerHelper.readFile();
+        fileManagerHelper.writeFile(req.body, "input.txt");
+        const readFile = fileManagerHelper.readFile("input.txt");
         const splitedWords = tokenDataService.splitText(readFile);
         const definiedTokens = tokenDataService.generateTokenData(splitedWords);
         const toWrite = definiedTokens;
-        fileManagerHelper.writeFile(JSON.stringify(toWrite, null, 2));
+        fileManagerHelper.writeFile(JSON.stringify(toWrite, null, 2), "output.txt");
         res.status(200).json({ data: definiedTokens });
     } catch (error) {
         res.status(500).json({ error: error });

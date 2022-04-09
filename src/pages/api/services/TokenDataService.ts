@@ -23,7 +23,6 @@ class TokeDataService {
             const character = line.charAt(lineCollumn);
             const nextCharacter = line.charAt(lineCollumn + 1);
             word += character;
-
             if (nextCharacter === " ") {
                 words.push(`${word}:${linePosition}:${lineCollumn}`);
                 lineCollumn += 1;
@@ -62,29 +61,29 @@ class TokeDataService {
         const lexicalDataArray: LexicalData[] = [];
         const flatSplitedLines = splitedLines.flatMap((currentLine) => currentLine);
         const mappedSplitedLines = flatSplitedLines.map((currentLine) => currentLine.split(":"));
-        mappedSplitedLines.map((currentLine) => {
-            const token = currentLine[0];
-            const line = currentLine[1];
-            const collumn = (Number(currentLine[2]) - token.length + 1).toString();
-            const reservedsResult = this.findToken(token, this.reserveds);
-            if (reservedsResult) {
+        mappedSplitedLines.map((currentToken) => {
+            const token = currentToken[0];
+            const line = currentToken[1];
+            const collumn = (Number(currentToken[2]) - token.length + 1).toString();
+            const isReserved = this.findToken(token, this.reserveds);
+            if (isReserved) {
                 const tokenData = new TokenData("Reserved", token, lexicalDataArray.length, line, collumn);
                 lexicalDataArray.push(tokenData);
                 return;
             }
-            const operatorsResult = this.findToken(token, this.operators);
-            if (operatorsResult) {
+            const isOperator = this.findToken(token, this.operators);
+            if (isOperator) {
                 const tokenData = new TokenData("Operator", token, lexicalDataArray.length, line, collumn);
                 lexicalDataArray.push(tokenData);
                 return;
             }
-            const delimiterResult = this.findToken(token, this.delimiters);
-            if (delimiterResult) {
+            const isDelimiter = this.findToken(token, this.delimiters);
+            if (isDelimiter) {
                 const tokenData = new TokenData("Delimiter", token, lexicalDataArray.length, line, collumn);
                 lexicalDataArray.push(tokenData);
                 return;
             }
-            if (!delimiterResult && !operatorsResult && !reservedsResult && token !== " " && token !== "") {
+            if (!isDelimiter && !isOperator && !isReserved && token !== " " && token !== "") {
                 const tokenData = new TokenData("Identifier", token, lexicalDataArray.length, line, collumn);
                 lexicalDataArray.push(tokenData);
                 return;
