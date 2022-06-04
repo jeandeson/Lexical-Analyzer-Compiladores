@@ -28,6 +28,9 @@ class TokeDataService {
                 lineCollumn += 1;
                 words.push(`${nextCharacter}:${linePosition}:${lineCollumn}`);
                 word = "";
+            } else if (this.findToken(character, this.delimiters)) {
+                words.push(`${word}:${linePosition}:${lineCollumn}`);
+                word = "";
             } else if (this.findToken(nextCharacter, this.operators)) {
                 words.push(`${word}:${linePosition}:${lineCollumn}`);
                 lineCollumn += 1;

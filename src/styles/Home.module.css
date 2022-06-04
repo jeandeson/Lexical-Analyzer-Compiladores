@@ -109,6 +109,7 @@
     -moz-transition: width 2s;
     -ms-transition: width 2s;
     -o-transition: width 2s;
+    overflow-y: hidden;
 }
 
 .textContainer::-webkit-scrollbar {

@@ -18,14 +18,13 @@ const Home: NextPage = () => {
 
     useEffect(() => {
         const FetchScanner = async (text: string) => {
-            const fectchedResponse = await fetch("api/scanner", {
+            const fetchedResponse = await fetch("api/scanner", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(text),
             });
-            const fetchedText: ApiResponse = await fectchedResponse.json();
+            const fetchedText: ApiResponse = await fetchedResponse.json();
             setScannedText(fetchedText.data);
-            console.log(scannedText);
         };
         FetchScanner(text);
     }, [text]);

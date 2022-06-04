@@ -57,3 +57,27 @@
     text-align: center;
     height: 40px;
 }
+
+ul.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul.pagination li {
+    background-color: white;
+    list-style: none;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+ul.pagination li.actualIndex {
+    background-color: black;
+    list-style: none;
+    color: white;
+    margin: 0px 5px;
+}
+
+ul.pagination li:hover {
+    cursor: pointer;
+}
