@@ -23,7 +23,7 @@ const Table: NextPage<TextAreaProps> = ({ data }) => {
             setLexicalData(slicedData);
         }
         handleWithDataIndex();
-    }, [actualIndex, lexicalData]);
+    }, [data]);
     return (
         <div className={styles.tableContainer}>
             <table>
