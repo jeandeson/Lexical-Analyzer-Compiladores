@@ -5,9 +5,10 @@ import styles from "./Table.module.css";
 
 interface TextAreaProps {
     data: LexicalData[];
+    text: string;
 }
 
-const Table: NextPage<TextAreaProps> = ({ data }) => {
+const Table: NextPage<TextAreaProps> = ({ data, text }) => {
     const limit = 8;
     const [actualIndex, setActualIndex] = useState(0);
     const [lexicalData, setLexicalData] = useState(data.slice(actualIndex * limit, actualIndex * limit + limit));
@@ -23,7 +24,7 @@ const Table: NextPage<TextAreaProps> = ({ data }) => {
             setLexicalData(slicedData);
         }
         handleWithDataIndex();
-    }, [data]);
+    }, [data, text, actualIndex]);
     return (
         <div className={styles.tableContainer}>
             <table>

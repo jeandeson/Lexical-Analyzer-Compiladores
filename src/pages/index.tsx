@@ -40,7 +40,7 @@ const Home: NextPage = () => {
             <main className={styles.main}>
                 <div className={styles.textContainer}>
                     <TextArea text={text} setText={setText} />
-                    {<Table data={scannedText} />}
+                    {<Table data={scannedText} text={text} />}
                     {scannedText.length <= 0 && <GrReactjs />}
                 </div>
             </main>

@@ -90,5 +90,97 @@
     "position": 7,
     "line": "0",
     "collumn": "11"
+  },
+  {
+    "description": "Reserved",
+    "lexeme": "const",
+    "token": "<const, >",
+    "pattern": [
+      "c",
+      "o",
+      "n",
+      "s",
+      "t"
+    ],
+    "position": 8,
+    "line": "1",
+    "collumn": "0"
+  },
+  {
+    "description": "Blank",
+    "lexeme": " ",
+    "token": "< , >",
+    "pattern": [
+      " "
+    ],
+    "position": 9,
+    "line": "1",
+    "collumn": "5"
+  },
+  {
+    "description": "Identifier",
+    "lexeme": "b",
+    "token": "<b, >",
+    "pattern": [
+      "b"
+    ],
+    "position": 10,
+    "line": "1",
+    "collumn": "6"
+  },
+  {
+    "description": "Blank",
+    "lexeme": " ",
+    "token": "< , >",
+    "pattern": [
+      " "
+    ],
+    "position": 11,
+    "line": "1",
+    "collumn": "7"
+  },
+  {
+    "description": "Operator",
+    "lexeme": "-",
+    "token": "<-, >",
+    "pattern": [
+      "-"
+    ],
+    "position": 12,
+    "line": "1",
+    "collumn": "8"
+  },
+  {
+    "description": "Blank",
+    "lexeme": " ",
+    "token": "< , >",
+    "pattern": [
+      " "
+    ],
+    "position": 13,
+    "line": "1",
+    "collumn": "9"
+  },
+  {
+    "description": "Identifier",
+    "lexeme": "5",
+    "token": "<5, >",
+    "pattern": [
+      "5"
+    ],
+    "position": 14,
+    "line": "1",
+    "collumn": "10"
+  },
+  {
+    "description": "Delimiter",
+    "lexeme": ";",
+    "token": "<;, >",
+    "pattern": [
+      ";"
+    ],
+    "position": 15,
+    "line": "1",
+    "collumn": "11"
   }
 ]
